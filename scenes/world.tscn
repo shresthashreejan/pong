@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp7iso5cf6d1o"]
+
+[ext_resource type="PackedScene" uid="uid://bxhcjhhgnt4e2" path="res://scenes/player_paddle.tscn" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://dhabs3fxf4gxp" path="res://scenes/ball.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://by68ilan5owe2" path="res://scenes/boundary.tscn" id="3_k0juu"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Player 1 Paddle" parent="." instance=ExtResource("1_nnsk1")]
+position = Vector2(-255, 0)
+
+[node name="Player 2 Paddle" parent="." instance=ExtResource("1_nnsk1")]
+position = Vector2(255, 0)
+
+[node name="Ball" parent="." instance=ExtResource("3_4wyf3")]
+
+[node name="Boundary" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_k0juu")]
+camera = NodePath("../Camera2D")
