@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwhnd6h6qwgnd"]
+
+[ext_resource type="Script" uid="uid://dg6vhq2tumomy" path="res://scripts/pong.gd" id="1_nth8n"]
+
+[node name="pong" type="Node2D"]
+script = ExtResource("1_nth8n")
