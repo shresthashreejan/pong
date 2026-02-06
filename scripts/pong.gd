@@ -13,6 +13,7 @@ var ball: CharacterBody2D
 var ball_velocity := Vector2.ZERO
 
 func _ready():
+	RenderingServer.set_default_clear_color(Color.BLACK)
 	DisplayServer.window_set_size(SCREEN_SIZE)
 	create_paddles()
 	create_ball()
