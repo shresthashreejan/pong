@@ -15,6 +15,7 @@ var ball_velocity := Vector2.ZERO
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	DisplayServer.window_set_size(SCREEN_SIZE)
+	create_separator()
 	create_paddles()
 	create_ball()
 	reset_ball()
@@ -116,3 +117,15 @@ func move_ball(delta):
 
 	if ball.position.x < 0 or ball.position.x > SCREEN_SIZE.x:
 		reset_ball()
+
+func create_separator():
+	var dash_height := 20
+	var gap := 20
+	var x := SCREEN_SIZE.x / 2.0 - 2
+
+	for y in range(0, SCREEN_SIZE.y, dash_height + gap):
+		var dash := ColorRect.new()
+		dash.color = Color.WHITE
+		dash.size = Vector2(4, dash_height)
+		dash.position = Vector2(x, y)
+		add_child(dash)
