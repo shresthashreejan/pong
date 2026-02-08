@@ -16,6 +16,7 @@ func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	DisplayServer.window_set_size(SCREEN_SIZE)
 	create_separator()
+	create_walls()
 	create_paddles()
 	create_ball()
 	reset_ball()
@@ -129,3 +130,23 @@ func create_separator():
 		dash.size = Vector2(4, dash_height)
 		dash.position = Vector2(x, y)
 		add_child(dash)
+
+func create_wall(size: Vector2) -> StaticBody2D:
+	var wall := StaticBody2D.new()
+	var collision := CollisionShape2D.new()
+	var shape := RectangleShape2D.new()
+	shape.size = size
+	collision.shape = shape
+	wall.add_child(collision)
+	return wall
+
+func create_walls():
+	var wall_width := 20
+
+	var left_wall := create_wall(Vector2(wall_width, SCREEN_SIZE.y))
+	left_wall.position = Vector2(-wall_width / 2.0, SCREEN_SIZE.y / 2.0)
+	add_child(left_wall)
+
+	var right_wall := create_wall(Vector2(wall_width, SCREEN_SIZE.y))
+	right_wall.position = Vector2(SCREEN_SIZE.x + wall_width / 2.0, SCREEN_SIZE.y / 2.0)
+	add_child(right_wall)
