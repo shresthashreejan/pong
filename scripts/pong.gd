@@ -7,6 +7,11 @@ const BALL_SIZE := 16
 const PADDLE_SPEED := 800
 const BALL_SPEED := 800
 
+var left_score := 0
+var right_score := 0
+var left_score_label: Label
+var right_score_label: Label
+
 var left_paddle: StaticBody2D
 var right_paddle: StaticBody2D
 var ball: CharacterBody2D
